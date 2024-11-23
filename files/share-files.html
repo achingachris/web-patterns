@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Share Files</title>
+</head>
+<body>
+  <h1>Share File</h1>
+  <button id="share-file">Share File</button>
+
+  <script>
+    const shareFileBtn = document.getElementById('share-file');
+
+    shareFileBtn.addEventListener('click', async () => {
+      const file = new File(['Hello, world!'], 'file.txt', { type: 'text/plain' });
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        await navigator.share({
+          files: [file],
+          title: 'File Sharing',
+          text: 'Check out this file!',
+        });
+        console.log('File shared!');
+      } else {
+        console.log('File sharing not supported.');
+      }
+    });
+  </script>
+</body>
+</html>

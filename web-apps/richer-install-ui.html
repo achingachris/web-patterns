@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Richer Install UI</title>
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <h1>Install Our App</h1>
+  <button id="installButton" style="display: none;">Install App</button>
+
+  <script>
+    let deferredPrompt;
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      document.getElementById('installButton').style.display = 'block';
+    });
+
+    document.getElementById('installButton').addEventListener('click', async () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const choiceResult = await deferredPrompt.userChoice;
+        console.log(`User response: ${choiceResult.outcome}`);
+        deferredPrompt = null;
+      }
+    });
+
+    window.addEventListener('appinstalled', () => {
+      console.log('App installed successfully');
+    });
+  </script>
+</body>
+</html>

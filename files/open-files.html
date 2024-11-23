@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Files</title>
+</head>
+<body>
+  <h1>Open Files</h1>
+  <button id="open-files">Open Files</button>
+  <input type="file" id="fallback" multiple hidden />
+
+  <script>
+    const openFilesBtn = document.getElementById('open-files');
+    const fallbackInput = document.getElementById('fallback');
+
+    openFilesBtn.addEventListener('click', async () => {
+      if ('showOpenFilePicker' in window) {
+        const files = await window.showOpenFilePicker({ multiple: true });
+        console.log('Files selected:', files);
+      } else {
+        fallbackInput.click();
+      }
+    });
+
+    fallbackInput.addEventListener('change', (event) => {
+      console.log('Fallback files:', event.target.files);
+    });
+  </script>
+</body>
+</html>
+

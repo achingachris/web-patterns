@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Copy Text</title>
+</head>
+<body>
+  <h1>Copy Text</h1>
+  <textarea id="text-to-copy" rows="3" cols="50">Sample text to copy.</textarea>
+  <button id="copy-text">Copy Text</button>
+
+  <script>
+    document.getElementById('copy-text').addEventListener('click', async () => {
+      const text = document.getElementById('text-to-copy').value;
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(text);
+          alert('Text copied to clipboard.');
+        } else {
+          const textarea = document.createElement('textarea');
+          textarea.value = text;
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textarea);
+          alert('Text copied using fallback method.');
+        }
+      } catch (err) {
+        console.error('Failed to copy text: ', err);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paste Image</title>
+</head>
+<body>
+  <h1>Paste Image</h1>
+  <button id="paste-image">Paste Image</button>
+  <div id="pasted-image-container"></div>
+
+  <script>
+    document.getElementById('paste-image').addEventListener('click', async () => {
+      try {
+        const clipboardItems = await navigator.clipboard.read();
+        for (const clipboardItem of clipboardItems) {
+          for (const type of clipboardItem.types) {
+            if (type.startsWith('image/')) {
+              const blob = await clipboardItem.getType(type);
+              const img = document.createElement('img');
+              img.src = URL.createObjectURL(blob);
+              document.getElementById('pasted-image-container').appendChild(img);
+            }
+          }
+        }
+      } catch (err) {
+        console.error('Failed to paste image: ', err);
+      }
+    });
+  </script>
+</body>
+</html>

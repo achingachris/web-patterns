@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Save File</title>
+</head>
+<body>
+  <h1>Save File</h1>
+  <button id="save-file">Save File</button>
+
+  <script>
+    const saveFileBtn = document.getElementById('save-file');
+
+    saveFileBtn.addEventListener('click', async () => {
+      if ('showSaveFilePicker' in window) {
+        const handle = await window.showSaveFilePicker();
+        const writable = await handle.createWritable();
+        await writable.write('Hello, world!');
+        await writable.close();
+        console.log('File saved!');
+      } else {
+        const link = document.createElement('a');
+        link.download = 'file.txt';
+        link.href = URL.createObjectURL(new Blob(['Hello, world!'], { type: 'text/plain' }));
+        link.click();
+        console.log('Fallback file saved!');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+    "name": "My Web App",
+    "short_name": "WebApp",
+    "start_url": "/",
+    "display": "standalone",
+    "shortcuts": [
+      {
+        "name": "Open Dashboard",
+        "short_name": "Dashboard",
+        "description": "Go to the dashboard",
+        "url": "/dashboard",
+        "icons": [{ "src": "/icons/dashboard.png", "sizes": "192x192" }]
+      },
+      {
+        "name": "New Post",
+        "short_name": "Post",
+        "description": "Create a new post",
+        "url": "/new-post",
+        "icons": [{ "src": "/icons/new-post.png", "sizes": "192x192" }]
+      }
+    ]
+  }
+  

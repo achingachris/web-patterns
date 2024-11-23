@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paste Text</title>
+</head>
+<body>
+  <h1>Paste Text</h1>
+  <button id="paste-text">Paste Text</button>
+  <textarea id="pasted-text" rows="3" cols="50" placeholder="Pasted text will appear here."></textarea>
+
+  <script>
+    document.getElementById('paste-text').addEventListener('click', async () => {
+      try {
+        if (navigator.clipboard && navigator.clipboard.readText) {
+          const text = await navigator.clipboard.readText();
+          document.getElementById('pasted-text').value = text;
+        } else {
+          alert('Clipboard API not supported for reading text.');
+        }
+      } catch (err) {
+        console.error('Failed to read clipboard contents: ', err);
+      }
+    });
+  </script>
+</body>
+</html>

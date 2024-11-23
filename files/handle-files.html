@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Handle Files</title>
+</head>
+<body>
+  <h1>Drag and Drop Files</h1>
+  <div id="drop-zone" style="border: 2px dashed #ccc; padding: 20px;">
+    Drag files here
+  </div>
+
+  <script>
+    const dropZone = document.getElementById('drop-zone');
+
+    dropZone.addEventListener('dragover', (event) => {
+      event.preventDefault();
+    });
+
+    dropZone.addEventListener('drop', (event) => {
+      event.preventDefault();
+      const files = event.dataTransfer.files;
+      console.log('Dropped files:', files);
+    });
+  </script>
+</body>
+</html>

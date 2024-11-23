@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>App Badge</title>
+</head>
+<body>
+  <h1>Creating an App Badge</h1>
+  <button id="setBadge">Set Badge</button>
+  <button id="clearBadge">Clear Badge</button>
+
+  <script>
+    document.getElementById('setBadge').addEventListener('click', async () => {
+      if ('setAppBadge' in navigator) {
+        try {
+          await navigator.setAppBadge(3); // Badge number
+          console.log('Badge set');
+        } catch (error) {
+          console.error('Error setting badge:', error);
+        }
+      } else {
+        alert('Badging API is not supported in your browser.');
+      }
+    });
+
+    document.getElementById('clearBadge').addEventListener('click', async () => {
+      if ('clearAppBadge' in navigator) {
+        try {
+          await navigator.clearAppBadge();
+          console.log('Badge cleared');
+        } catch (error) {
+          console.error('Error clearing badge:', error);
+        }
+      } else {
+        alert('Badging API is not supported in your browser.');
+      }
+    });
+  </script>
+</body>
+</html>

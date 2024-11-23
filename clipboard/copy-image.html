@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Copy Image</title>
+</head>
+<body>
+  <h1>Copy Image</h1>
+  <img id="image-to-copy" src="https://via.placeholder.com/150" alt="Sample Image">
+  <button id="copy-image">Copy Image</button>
+
+  <script>
+    document.getElementById('copy-image').addEventListener('click', async () => {
+      const img = document.getElementById('image-to-copy');
+      try {
+        const response = await fetch(img.src);
+        const blob = await response.blob();
+        const item = new ClipboardItem({ [blob.type]: blob });
+        await navigator.clipboard.write([item]);
+        alert('Image copied to clipboard.');
+      } catch (err) {
+        console.error('Failed to copy image: ', err);
+      }
+    });
+  </script>
+</body>
+</html>

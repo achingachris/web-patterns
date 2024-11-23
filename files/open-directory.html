@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Directory</title>
+</head>
+<body>
+  <h1>Open a Directory</h1>
+  <button id="open-dir">Open Directory</button>
+  <input type="file" id="fallback" webkitdirectory hidden />
+
+  <script>
+    const openDirBtn = document.getElementById('open-dir');
+    const fallbackInput = document.getElementById('fallback');
+
+    openDirBtn.addEventListener('click', async () => {
+      if ('showDirectoryPicker' in window) {
+        const directoryHandle = await window.showDirectoryPicker();
+        console.log('Directory selected:', directoryHandle);
+      } else {
+        fallbackInput.click();
+      }
+    });
+
+    fallbackInput.addEventListener('change', (event) => {
+      console.log('Fallback directory:', event.target.files);
+    });
+  </script>
+</body>
+</html>
+

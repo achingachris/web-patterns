@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paste Files</title>
+</head>
+<body>
+  <h1>Paste Files</h1>
+  <p>Click the button and then paste files (e.g., Ctrl+V or Cmd+V).</p>
+  <button id="paste-files">Paste Files</button>
+  <div id="pasted-files-container"></div>
+
+  <script>
+    document.getElementById('paste-files').addEventListener('click', () => {
+      document.addEventListener('paste', handlePaste);
+    });
+
+    function handlePaste(event) {
+      const items = event.clipboardData.files;
+      for (const item of items) {
+        const fileReader = new FileReader();
+        fileReader.onload = (e) => {
+          const fileContent = e.target.result;
+          const div = document.createElement('div');
+          div.textContent = `File: ${item.name}`;
+          document.getElementById('pasted-files-container').appendChild(div);
+        };
+        fileReader.readAsText(item);
+      }
+      document.removeEventListener('paste', handlePaste);
+    }
+  </script>
+</body>
+</html>
