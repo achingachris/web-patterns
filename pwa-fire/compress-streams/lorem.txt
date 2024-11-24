@@ -1,0 +1,89 @@
+Chris Ndanyi Achinga
+Software Developer
+achinga.chris@gmail.com | https://www.linkedin.com/in/chrisachinga | https://github.com/achingachris
+Key Achievements and Skills
+GIS and AI Expertise: I have advanced experience in GIS software engineering and AI, particularly in environmental monitoring and data analysis.
+Leadership and Innovation: Proven leadership in project management and developing innovative technological solutions.
+Africa Market Expertise: Extensive experience and understanding of the African technology market, focusing on localized solutions and user expectations.
+Technical Versatility: Skilled in various programming languages, with a strong ability to adapt and implement new technologies.
+Experience
+Software Developer - Swahilipot Hub Foundation(Mombasa, Kenya)
+November 2020 - Up to Date, 
+Skills: Full Stack Development, Project Management, Leadership and Mentorship
+
+Developing a centralized application using Django's powerful ORM capabilities and embracing a micro-services architecture has revolutionized our project management and monitoring systems. I have streamlined data management and fostered seamless platform collaboration by consolidating all projects within a single repository. This strategic approach enhances our internal operations and significantly expedites decision-making processes. As a result, we are better positioned to secure grants and funding opportunities, showcasing our organizational prowess and commitment to efficiency and innovation.
+I created a uniform web design template using NextJs for the organization’s website that helped with branding and recognition, increasing local traffic to the website by 55%.
+Pioneered the Industrial Attachment program under the Technology Department, which helped 255 students in 2023, under my supervision from Kenyan institutions, get real industrial experience in Software Development. The program motivated partnerships between the organization and learning institutions to help students get faster placement for their Industrial Attachment.
+I Implement security protocols recommended by the Open Worldwide Application Security Project(OWASP), fostering trust among users and stakeholders. This fortified online presence elevates the Foundation's credibility and positions it as a beacon of technological excellence in advancing its mission and engaging with its community.
+
+Software Developer - Green World Campaign Kenya(Remote)
+January 2023 - Up to Date
+Skills: Full Stack Development, GIS Software Engineering, Data Analysis, Artificial Intelligence
+
+As a Software Developer at Green World Campaign Kenya, I am at the forefront of driving impactful technological initiatives. I explicitly contributed to developing the Automated Incentives for Regenerative Stewardship (AIRS) platform.
+
+Data Collection Tool Development:
+Designed and implemented a robust data collection tool for field officers, streamlining the verification process of critical information.
+I enhance efficiency in data gathering by incorporating user-friendly features, ensuring accurate and real-time inputs from on-ground observations and satellite technology.
+Monitoring and Evaluation Dashboard:
+I led the development and maintenance of a comprehensive data analysis dashboard for all information collected and stored.
+I Empower stakeholders with a centralized platform for real-time monitoring and evaluation, offering insights into the progress of regenerative initiatives and the impact on target regions.
+GIS Software Engineering:
+I am leveraging my Geographic Information System (GIS) software engineering expertise to integrate advanced remote sensing data from satellites. This will also help the organization and stakeholders visualize the activities reported.
+I contribute to the seamless fusion of satellite insights with on-ground observations, providing a holistic view of target regions and identifying areas requiring immediate attention.
+Full Stack Development:
+I Engage in full-stack development using Python, Django, and Javascript frontend frameworks, ensuring the integration of various components crucial to the functioning of the AIRS system.
+I am collaborating on implementing blockchain ledgers and smart contracts, which will guarantee the transparency and automation of reward distribution based on predefined conditions.
+Artificial Intelligence Integration:
+I apply artificial intelligence techniques to enhance the accuracy of data analysis, providing valuable insights into the effectiveness of regenerative practices.
+I Contribute to the development of algorithms that support the identification of areas for potential intervention and improvement.
+In this dynamic role, I am committed to driving innovation, ensuring the integrity of the AIRS platform, and contributing to the Green World Campaign's mission of fostering regenerative economic practices in Kenya. My responsibilities extend beyond traditional software development, encompassing the intersection of technology, environmental stewardship, and community empowerment.
+Technical Blog Contributor - CloudAcademy
+June 2022 - June 2023
+Skills: Technical Writing, Cloud Technologies, Amazon Web Service
+
+Simplified Complex Concepts:
+As a Technical Content Contributor, I created clear and concise technical documentation that effectively communicated complex technical concepts to various audiences. This made the learning process more accessible and efficient for Cloud Academy users.
+
+Streamlined User Experience:
+By developing user guides, FAQs, and other documentation, I contributed to an improved user experience on the Cloud Academy platform. This made it easier for users to navigate the platform, find the needed information, and complete their courses.
+
+Boosted Engagement and Satisfaction:
+My high-quality technical content led to increased user engagement and satisfaction. As a result, Cloud Academy experienced higher course completion rates and positive user reviews, demonstrating the value and effectiveness of the learning materials.
+
+Elevated Platform Reputation:
+By producing technical documentation that showcased the quality and expertise of Cloud Academy, I helped enhance the platform's reputation within the industry. This contributed to the platform's growth and success, attracting new users and solidifying its position as a leader in cloud computing education.
+
+Technical Writer - Hackmamba
+February 2022 - May 2023
+Skills: Technical Writing, Technical Documentation, Frontend Frameworks, Headless CMS
+
+Demonstrated Product Functionality:
+By creating live demos alongside technical content, I effectively showcased how processes or platforms work for clients around the globe. These demonstrations provided clear, visual guidance that increased user confidence, streamlined onboarding, and promoted successful product utilization.
+
+Fostered Collaborative Improvement:
+Through peer-reviewed articles and posts by colleagues at Hackmamba, I provided honest and constructive feedback that contributed to higher-quality content. This collaborative approach ensured that Hackmamba delivered accurate, comprehensive, and engaging technical documentation for clients.
+
+Enhanced User Experience and Understanding:
+In technical posts, I simplified steps and approaches to using various features, tools, and technologies, contributing to a more user-friendly experience for Hackmamba's clients. This improved understanding and adoption of the company's offerings, ultimately driving customer satisfaction and loyalty.
+Programming Languages and Tools
+Developer Operations:
+Git
+GitHub, GitHub Actions, and Workflows
+Cloud Computing: Amazon Web Service, Microsoft Azure
+Backend
+Python Django
+PHP Laravel
+NodeJS
+Frontend
+Angular
+React (NextJs)
+
+Education
+Bachelor of Science in Information Technology
+Zetech University
+May 2018 - December 2022
+Software Engineering
+Moringa School
+2023
+
