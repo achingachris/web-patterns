@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PWA Connectivity Status</title>
+    <script src="script.js" type="module"></script>
+    <style>
+      .status-dot {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+      .online {
+        background-color: green;
+      }
+      .offline {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Connectivity Status</h1>
+    <div>
+      <span class="status-dot" id="connectivity-status"></span>
+      <span id="status-text">Checking...</span>
+    </div>
+  </body>
+</html>
