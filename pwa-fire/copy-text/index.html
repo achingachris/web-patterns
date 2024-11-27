@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Copy Text with PWAFire</title>
+    <script src="script.js" type="module"></script>
+  </head>
+  <body>
+    <h1>Copy Text with PWAFire</h1>
+    <textarea id="text-to-copy" rows="3" cols="50">
+      This is Just to Confirm that the Clipboard API is Working with PWAFire. Paste it on word or something to test out
+    </textarea>
+    <button id="copy-text">Copy Text</button>
+
+    <script>
+      document.getElementById('copy-text').addEventListener('click', () => {
+        const text = document.getElementById('text-to-copy').value;
+
+        // Using PWAFire's Clipboard API
+        pwafire.clipboard
+          .writeText(text)
+          .then(() => alert('Text copied to clipboard using PWAFire!'))
+          .catch((err) => console.error('Failed to copy text:', err));
+      });
+    </script>
+  </body>
+</html>
