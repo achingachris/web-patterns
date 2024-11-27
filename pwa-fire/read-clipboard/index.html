@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Read Text from Clipboard</title>
+    <title>Read Files from Clipboard</title>
     <script src="script.js" type="module" defer></script>
     <style>
       body {
@@ -21,22 +21,21 @@
         cursor: pointer;
         margin-top: 20px;
       }
-      #clipboard-text {
+      #file-preview {
         margin-top: 20px;
+      }
+      img {
+        max-width: 100%;
+        max-height: 400px;
         border: 1px solid #ddd;
-        padding: 10px;
-        max-width: 600px;
-        margin: 20px auto;
-        text-align: left;
-        font-family: monospace;
-        background-color: #f9f9f9;
+        margin-top: 10px;
       }
     </style>
   </head>
   <body>
-    <h1>Read/Paste Text from Clipboard</h1>
-    <p>Copy some text to your clipboard, then click the button below to read it.</p>
-    <button id="read-text">Read Clipboard Text</button>
-    <div id="clipboard-text">Clipboard text will appear here...</div>
+    <h1>Read Files from Clipboard</h1>
+    <p>Copy an image to the clipboard, then click the button below to read and display it.</p>
+    <button id="read-files">Read Clipboard Files</button>
+    <div id="file-preview">Clipboard content will appear here...</div>
   </body>
 </html>
