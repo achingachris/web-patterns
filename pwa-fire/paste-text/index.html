@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Read Text from Clipboard</title>
+    <script src="script.js" type="module" defer></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 18px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+      #clipboard-text {
+        margin-top: 20px;
+        border: 1px solid #ddd;
+        padding: 10px;
+        max-width: 600px;
+        margin: 20px auto;
+        text-align: left;
+        font-family: monospace;
+        background-color: #f9f9f9;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Read Text from Clipboard</h1>
+    <p>Copy some text to your clipboard, then click the button below to read it.</p>
+    <button id="read-text">Read Clipboard Text</button>
+    <div id="clipboard-text">Clipboard text will appear here...</div>
+  </body>
+</html>
