@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pick and Read Text Files</title>
+    <script src="script.js" type="module" defer></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 18px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      #file-content {
+        margin-top: 20px;
+        white-space: pre-wrap;
+        border: 1px solid #ddd;
+        padding: 10px;
+        max-width: 600px;
+        margin: 20px auto;
+        text-align: left;
+        font-family: monospace;
+        background-color: #f9f9f9;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Pick and Read Text Files</h1>
+    <p>Click the button below to select a text file and read its content.</p>
+    <button id="pick-text-file">Pick Text File</button>
+    <div id="file-content">File content will appear here...</div>
+  </body>
+</html>
