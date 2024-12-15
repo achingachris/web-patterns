@@ -49,8 +49,8 @@
           if (navigator.share) {
             try {
               await navigator.share({
-                title: "Example Page",
-                url: "https://example.com",
+                title: "Web Patterns",
+                url: "https://achingachris.github.io/web-patterns/",
               });
               console.log("URL shared successfully");
             } catch (err) {
@@ -64,7 +64,7 @@
       document
         .getElementById("shareFile")
         .addEventListener("click", async () => {
-          const file = new File(["Hello World!"], "example.txt", {
+          const file = new File(["Hello World! You just made this file"], "file.txt", {
             type: "text/plain",
           });
 
