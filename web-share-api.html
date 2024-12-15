@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Share API Demo</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        text-align: center;
+      }
+      button {
+        margin: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Web Share API Demo</h1>
+    <button id="shareText">Share Text</button>
+    <button id="shareURL">Share URL</button>
+    <button id="shareFile">Share File</button>
+
+    <script>
+      document
+        .getElementById("shareText")
+        .addEventListener("click", async () => {
+          if (navigator.share) {
+            try {
+              await navigator.share({
+                title: "Example Text",
+                text: "Hello World! Sharing this text from the Web Share API.",
+              });
+              console.log("Text shared successfully");
+            } catch (err) {
+              console.error("Error sharing text:", err);
+            }
+          } else {
+            alert("Web Share API is not supported in this browser.");
+          }
+        });
+
+      document
+        .getElementById("shareURL")
+        .addEventListener("click", async () => {
+          if (navigator.share) {
+            try {
+              await navigator.share({
+                title: "Example Page",
+                url: "https://example.com",
+              });
+              console.log("URL shared successfully");
+            } catch (err) {
+              console.error("Error sharing URL:", err);
+            }
+          } else {
+            alert("Web Share API is not supported in this browser.");
+          }
+        });
+
+      document
+        .getElementById("shareFile")
+        .addEventListener("click", async () => {
+          const file = new File(["Hello World!"], "example.txt", {
+            type: "text/plain",
+          });
+
+          if (navigator.canShare && navigator.canShare({ files: [file] })) {
+            try {
+              await navigator.share({
+                files: [file],
+                title: "Example File",
+                text: "Check out this file!",
+              });
+              console.log("File shared successfully");
+            } catch (err) {
+              console.error("Error sharing file:", err);
+            }
+          } else {
+            alert("File sharing not supported or file not shareable.");
+          }
+        });
+    </script>
+  </body>
+</html>
