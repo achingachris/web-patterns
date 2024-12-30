@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=§, initial-scale=1.0" />
+    <title>Check Connectivity Status</title>
+  </head>
+  <body>
+    <div id="connectivity-status" style="font-size: 18px; font-weight: bold;"></div>
+    <script>
+      function checkConnectivityStatus() {
+        const statusElement = document.getElementById('connectivity-status');
+        if (navigator.onLine) {
+          statusElement.textContent = '🟢 You are online.';
+          statusElement.style.color = 'green';
+        } else {
+          statusElement.textContent =
+            '🔴 You are offline. Changes may not be saved!';
+          statusElement.style.color = 'red';
+        }
+      }
+
+      // Listen for connectivity changes
+      window.addEventListener('online', checkConnectivityStatus);
+      window.addEventListener('offline', checkConnectivityStatus);
+
+      // Initial status check on page load
+      checkConnectivityStatus();
+    </script>
+  </body>
+</html>
