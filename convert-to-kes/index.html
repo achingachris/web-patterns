@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Currency Converter to KES</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-lg">
+      <h2 class="text-2xl font-bold text-gray-800 text-center mb-6">
+        Currency Converter to KES
+      </h2>
+
+      <!-- Conversion Form -->
+      <form id="convertForm" class="space-y-4">
+        <div>
+          <label class="block text-gray-700 font-medium">Amount:</label>
+          <input
+            type="number"
+            id="amount"
+            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter Amount"
+            required
+          />
+        </div>
+
+        <div>
+          <label class="block text-gray-700 font-medium"
+            >Select Currency:</label
+          >
+          <select
+            id="currency"
+            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            <option value="" disabled selected>Select Currency</option>
+          </select>
+        </div>
+
+        <button
+          type="submit"
+          class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300"
+        >
+          Convert
+        </button>
+      </form>
+
+      <div
+        id="result"
+        class="mt-4 text-center text-lg font-semibold text-gray-800"
+      ></div>
+
+      <!-- Top Fiat Currencies Table -->
+      <h3 class="text-xl font-bold text-gray-800 text-center mt-6">
+        Top Currencies vs KES
+      </h3>
+      <table class="w-full mt-4 border-collapse border border-gray-300">
+        <thead>
+          <tr class="bg-blue-500 text-white">
+            <th class="border border-gray-300 px-4 py-2">Currency</th>
+            <th class="border border-gray-300 px-4 py-2">Rate to KES</th>
+          </tr>
+        </thead>
+        <tbody id="topCurrenciesTable">
+          <tr>
+            <td colspan="2" class="text-center py-2">Loading...</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Top Cryptocurrencies Table -->
+      <h3 class="text-xl font-bold text-gray-800 text-center mt-6">
+        Top Cryptos vs KES
+      </h3>
+      <table class="w-full mt-4 border-collapse border border-gray-300">
+        <thead>
+          <tr class="bg-purple-500 text-white">
+            <th class="border border-gray-300 px-4 py-2">Cryptocurrency</th>
+            <th class="border border-gray-300 px-4 py-2">Rate to KES</th>
+          </tr>
+        </thead>
+        <tbody id="topCryptoTable">
+          <tr>
+            <td colspan="2" class="text-center py-2">Loading...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      const FIAT_API_URL = 'https://api.exchangerate-api.com/v4/latest/KES';
+      const CRYPTO_API_URL =
+        'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,binancecoin,ripple,solana&vs_currencies=kes';
+
+      const currencySelect = document.getElementById('currency');
+      const topCurrenciesTable = document.getElementById('topCurrenciesTable');
+      const topCryptoTable = document.getElementById('topCryptoTable');
+
+      const topCurrencies = {
+        USD: 'United States - USD',
+        EUR: 'European Union - EUR',
+        SAR: 'Saudi Arabia - SAR',
+        KWD: 'Kuwait - KWD',
+      };
+
+      // Country and currency mappings
+      const currencyMap = {
+        USD: 'United States - USD',
+        EUR: 'European Union - EUR',
+        SAR: 'Saudi Arabia - SAR',
+        KWD: 'Kuwait - KWD',
+        GBP: 'United Kingdom - GBP',
+        INR: 'India - INR',
+        JPY: 'Japan - JPY',
+        CAD: 'Canada - CAD',
+        AUD: 'Australia - AUD',
+        CNY: 'China - CNY',
+        ZAR: 'South Africa - ZAR',
+        NGN: 'Nigeria - NGN',
+      };
+
+      // Fetch fiat currency rates
+      fetch(FIAT_API_URL)
+        .then((response) => response.json())
+        .then((data) => {
+          const rates = data.rates;
+
+          // Populate the dropdown
+          Object.keys(rates).forEach((currency) => {
+            let option = document.createElement('option');
+            option.value = currency;
+            option.textContent =
+              currencyMap[currency] || `${currency} - ${currency}`;
+            currencySelect.appendChild(option);
+          });
+
+          // Populate the top currencies table
+          topCurrenciesTable.innerHTML = '';
+          Object.keys(topCurrencies).forEach((currency) => {
+            if (rates[currency]) {
+              let row = `<tr class="text-center">
+                        <td class="border border-gray-300 px-4 py-2">${
+                          topCurrencies[currency]
+                        }</td>
+                        <td class="border border-gray-300 px-4 py-2">${(
+                          1 / rates[currency]
+                        ).toFixed(2)} KES</td>
+                    </tr>`;
+              topCurrenciesTable.innerHTML += row;
+            }
+          });
+        })
+        .catch((error) =>
+          console.error('Error fetching fiat currencies:', error)
+        );
+
+      // Fetch crypto rates
+      fetch(CRYPTO_API_URL)
+        .then((response) => response.json())
+        .then((data) => {
+          topCryptoTable.innerHTML = '';
+          const cryptos = {
+            bitcoin: 'Bitcoin (BTC)',
+            ethereum: 'Ethereum (ETH)',
+            binancecoin: 'Binance Coin (BNB)',
+            ripple: 'Ripple (XRP)',
+            solana: 'Solana (SOL)',
+          };
+
+          Object.keys(cryptos).forEach((crypto) => {
+            if (data[crypto]) {
+              let row = `<tr class="text-center">
+                        <td class="border border-gray-300 px-4 py-2">${
+                          cryptos[crypto]
+                        }</td>
+                        <td class="border border-gray-300 px-4 py-2">${data[
+                          crypto
+                        ].kes.toFixed(2)} KES</td>
+                    </tr>`;
+              topCryptoTable.innerHTML += row;
+            }
+          });
+        })
+        .catch((error) =>
+          console.error('Error fetching crypto prices:', error)
+        );
+
+      // Handle form submission
+      document.getElementById('convertForm').onsubmit = function (event) {
+        event.preventDefault();
+
+        let amount = document.getElementById('amount').value;
+        let currency = currencySelect.value;
+
+        if (!amount || !currency) {
+          document.getElementById('result').innerText =
+            'Please enter an amount and select a currency.';
+          return;
+        }
+
+        fetch(FIAT_API_URL)
+          .then((response) => response.json())
+          .then((data) => {
+            const rate = data.rates[currency];
+            const convertedAmount = (amount / rate).toFixed(2);
+            document.getElementById('result').innerHTML = `
+                    <p class="text-green-600">${amount} ${currency} = <span class="font-bold">${convertedAmount} KES</span></p>
+                `;
+          })
+          .catch((error) => console.error('Error converting currency:', error));
+      };
+    </script>
+  </body>
+</html>
