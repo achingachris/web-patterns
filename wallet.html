@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dummy Ticket Generator</title>
+</head>
+<body>
+  <h1>Dummy Ticket Generator</h1>
+  <form id="ticketForm">
+    <label for="eventName">Event Name:</label>
+    <input type="text" id="eventName" name="eventName" value="Dummy Event"><br><br>
+
+    <label for="eventDate">Event Date:</label>
+    <input type="date" id="eventDate" name="eventDate" value="2024-12-31"><br><br>
+
+    <label for="seatNumber">Seat Number:</label>
+    <input type="text" id="seatNumber" name="seatNumber" value="A123"><br><br>
+
+    <button type="button" onclick="generateDummyTicket()">Generate Dummy Ticket</button>
+  </form>
+
+  <div id="downloadLink" style="display:none;">
+    <a id="downloadButton" href="#" download="dummy_ticket.pkpass">Download Dummy Ticket</a>
+  </div>
+
+  <script>
+    function generateDummyTicket() {
+      const eventName = document.getElementById('eventName').value;
+      const eventDate = document.getElementById('eventDate').value;
+      const seatNumber = document.getElementById('seatNumber').value;
+
+      // Create some dummy data for the .pkpass file (this is just text)
+      const dummyPassData = `
+      {
+        "formatVersion": 1,
+        "passTypeIdentifier": "your.dummy.pass",
+        "serialNumber": "DUMMY-001",
+        "teamIdentifier": "DUMMYTEAM",
+        "organizationName": "Dummy Org",
+        "description": "Dummy Ticket",
+        "event": "${eventName}",
+        "date": "${eventDate}",
+        "seat": "${seatNumber}"
+      }
+      `;
+
+      // Create a Blob from the dummy data
+      const blob = new Blob([dummyPassData], { type: 'application/vnd.apple.pkpass' });
+
+      // Create a URL for the Blob
+      const url = URL.createObjectURL(blob);
+
+      // Set the download link's href to the Blob URL
+      const downloadButton = document.getElementById('downloadButton');
+      downloadButton.href = url;
+
+      // Show the download link
+      document.getElementById('downloadLink').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
